@@ -74,7 +74,7 @@ const Hero = () => {
               >
                 <span className="sr-only">GitHub</span>
                 <img 
-                  src="/github-mark.svg" 
+                  src="/src/github-mark.svg" 
                   alt="GitHub" 
                   className="h-6 w-6 dark:invert"
                 />
