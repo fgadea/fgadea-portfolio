@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Moon, Sun, Smartphone } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 interface HeaderProps {
