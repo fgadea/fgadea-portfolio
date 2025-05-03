@@ -6,6 +6,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Companies from './components/Companies';
 import { ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Hero />
           <About />
           {/* <Projects /> */}
+          <Companies />
           <Skills />
           <Contact />
         </main>

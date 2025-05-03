@@ -39,6 +39,7 @@ export const skills: SkillCategory[] = [
     icon: Palette,
     items: [
       { name: 'Figma' },
+      { name: 'Sketch' },
     ],
   },
   {
@@ -57,6 +58,8 @@ export const skills: SkillCategory[] = [
     items: [
       { name: 'Swift' },
       { name: 'Kotlin' },
+      { name: 'Objective-C' },
+      { name: 'Java' },
       { name: 'C#' },
     ],
   },

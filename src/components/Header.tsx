@@ -18,6 +18,7 @@ const Header = ({ scrolled }: HeaderProps) => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     // { name: 'Projects', href: '#projects' },
+    { name: 'Highlights', href: '#companies' },
     { name: 'Skills', href: '#skills' },
     { name: 'Contact', href: '#contact' },
   ];
