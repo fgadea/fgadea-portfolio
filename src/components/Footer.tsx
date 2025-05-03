@@ -8,7 +8,6 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mb-6 md:mb-0">
-            <Smartphone className="h-6 w-6 text-primary-400 mr-2" />
             <span className="font-semibold text-xl">Felipe Gadea Llopis</span>
           </div>
           

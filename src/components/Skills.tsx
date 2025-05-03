@@ -43,7 +43,23 @@ const Skills = () => {
             {skills.map((category, index) => (
               <div key={category.name} className={`${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center">
-                  <category.icon className="mr-2 h-5 w-5 text-primary-600 dark:text-primary-400" />
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center mr-2 ${
+                    category.name === 'iOS Development' ? 'bg-blue-100 dark:bg-blue-900/30' :
+                    category.name === 'Cross-Platform' ? 'bg-purple-100 dark:bg-purple-900/30' :
+                    category.name === 'UI/UX Design' ? 'bg-orange-100 dark:bg-orange-900/30' :
+                    category.name === 'Backend & DevOps' ? 'bg-green-100 dark:bg-green-900/30' :
+                    category.name === 'Programming' ? 'bg-cyan-100 dark:bg-cyan-900/30' :
+                    'bg-violet-100 dark:bg-violet-900/30'
+                  }`}>
+                    <category.icon className={`h-5 w-5 ${
+                      category.name === 'iOS Development' ? 'text-blue-600 dark:text-blue-400' :
+                      category.name === 'Cross-Platform' ? 'text-purple-600 dark:text-purple-400' :
+                      category.name === 'UI/UX Design' ? 'text-orange-600 dark:text-orange-400' :
+                      category.name === 'Backend & DevOps' ? 'text-green-600 dark:text-green-400' :
+                      category.name === 'Programming' ? 'text-cyan-600 dark:text-cyan-400' :
+                      'text-violet-600 dark:text-violet-400'
+                    }`} />
+                  </div>
                   {category.name}
                 </h3>
                 
