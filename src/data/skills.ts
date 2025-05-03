@@ -16,48 +16,22 @@ export const skills: SkillCategory[] = [
     name: 'iOS Development',
     icon: Smartphone,
     items: [
-      { 
-        name: 'Swift', 
-        icon: 'https://img.icons8.com/color/48/swift.png' 
-      },
-      { 
-        name: 'SwiftUI', 
-        icon: 'https://img.icons8.com/ios-filled/50/swiftui.png' 
-      },
-      { 
-        name: 'UIKit', 
-        icon: 'https://img.icons8.com/ios/50/settings--v1.png' 
-      },
-      { 
-        name: 'Xcode', 
-        icon: 'https://img.icons8.com/fluency/48/xcode.png' 
-      },
-      { 
-        name: 'Objective-C', 
-        icon: 'https://img.icons8.com/ios-filled/50/c-programming.png' 
-      },
-      { 
-        name: 'ARKit', 
-        icon: 'https://img.icons8.com/ios/50/augmented-reality.png' 
-      },
-      { 
-        name: 'CoreData', 
-        icon: 'https://img.icons8.com/ios/50/database.png' 
-      },
-      { 
-        name: 'HealthKit', 
-        icon: 'https://img.icons8.com/fluency/48/like--v1.png' 
-      }
+      { name: 'Swift' },
+      { name: 'SwiftUI' },
+      { name: 'UIKit' },
+      { name: 'Xcode' },
+      { name: 'Objective-C' },
+      { name: 'ARKit' },
+      { name: 'CoreData' },
+      { name: 'HealthKit'  }
     ],
   },
   {
     name: 'Cross-Platform',
     icon: Globe,
     items: [
-      { name: 'React Native' },
       { name: 'Flutter' },
-      { name: 'Kotlin' },
-      { name: 'Xamarin' },
+      { name: 'KMM' },
     ],
   },
   {
@@ -65,10 +39,6 @@ export const skills: SkillCategory[] = [
     icon: Palette,
     items: [
       { name: 'Figma' },
-      { name: 'Sketch' },
-      { name: 'Adobe XD' },
-      { name: 'Prototyping' },
-      { name: 'Animation' },
     ],
   },
   {
@@ -76,7 +46,6 @@ export const skills: SkillCategory[] = [
     icon: Database,
     items: [
       { name: 'Firebase' },
-      { name: 'Node.js' },
       { name: 'REST APIs' },
       { name: 'GraphQL' },
       { name: 'CI/CD' },
@@ -86,11 +55,9 @@ export const skills: SkillCategory[] = [
     name: 'Programming',
     icon: Code,
     items: [
-      { name: 'JavaScript' },
-      { name: 'TypeScript' },
-      { name: 'Python' },
-      { name: 'Java' },
-      { name: 'C++' },
+      { name: 'Swift' },
+      { name: 'Kotlin' },
+      { name: 'C#' },
     ],
   },
   {

@@ -1,22 +1,74 @@
 import { useRef, useState } from 'react';
 import { Mail, MapPin, Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 import SectionHeading from './ui/SectionHeading';
+import { EMAIL_CONFIG } from '../config/email';
 
 const Contact = () => {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormStatus('submitting');
     
-    // Simulate form submission
-    setTimeout(() => {
+    if (!captchaValue) {
+      setFormStatus('error');
+      return;
+    }
+    
+    setFormStatus('submitting');
+
+    if (!formRef.current) return;
+
+    try {
+      const formData = new FormData(formRef.current);
+      const currentTime = new Date().toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
+
+      const templateParams = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        subject: formData.get('subject'),
+        message: formData.get('message'),
+        time: currentTime
+      };
+
+      await emailjs.send(
+        EMAIL_CONFIG.SERVICE_ID,
+        EMAIL_CONFIG.TEMPLATE_ID,
+        templateParams,
+        EMAIL_CONFIG.PUBLIC_KEY
+      );
+
       setFormStatus('success');
-      if (formRef.current) {
-        formRef.current.reset();
-      }
-    }, 1500);
+      formRef.current.reset();
+      setCaptchaValue(null);
+      recaptchaRef.current?.reset();
+      
+      // Reset form status after 3 seconds
+      setTimeout(() => {
+        setFormStatus('idle');
+      }, 3000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setFormStatus('error');
+    }
+  };
+
+  const handleCaptchaChange = (value: string | null) => {
+    setCaptchaValue(value);
+    if (formStatus === 'error') {
+      setFormStatus('idle');
+    }
   };
   
   return (
@@ -48,8 +100,8 @@ const Contact = () => {
                     <h4 className="text-sm font-medium text-slate-900 dark:text-white">
                       Email
                     </h4>
-                    <a href="mailto:hello@example.com" className="text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                      felipe@fgadea.dev
+                    <a href={`mailto:${EMAIL_CONFIG.RECIPIENT_EMAIL}`} className="text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                      {EMAIL_CONFIG.RECIPIENT_EMAIL}
                     </a>
                   </div>
                 </div>
@@ -155,15 +207,26 @@ const Contact = () => {
                       disabled={formStatus === 'submitting'}
                     ></textarea>
                   </div>
+
+                  <div className="flex justify-center">
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey="6Lcs6iwrAAAAAJB6SOu2voU2Sirnx-fDdHQomRQS"
+                      onChange={handleCaptchaChange}
+                      theme="light"
+                    />
+                  </div>
                   
                   <button
                     type="submit"
-                    disabled={formStatus === 'submitting' || formStatus === 'success'}
+                    disabled={formStatus === 'submitting' || formStatus === 'success' || !captchaValue}
                     className={`w-full flex items-center justify-center px-6 py-3 rounded-lg text-white font-medium transition-colors ${
                       formStatus === 'submitting'
                         ? 'bg-primary-500 cursor-not-allowed'
                         : formStatus === 'success'
                         ? 'bg-green-600 cursor-not-allowed'
+                        : !captchaValue
+                        ? 'bg-slate-400 cursor-not-allowed'
                         : 'bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600'
                     }`}
                   >
@@ -187,7 +250,9 @@ const Contact = () => {
                   
                   {formStatus === 'error' && (
                     <p className="text-red-600 text-sm mt-2">
-                      There was an error sending your message. Please try again.
+                      {!captchaValue 
+                        ? 'Please complete the captcha verification.'
+                        : 'There was an error sending your message. Please try again.'}
                     </p>
                   )}
                 </form>
