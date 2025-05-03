@@ -21,13 +21,13 @@ const Footer = () => {
             </a>
             {/* <a href="#projects" className="text-sm text-slate-300 hover:text-white transition-colors">
               Projects
-            </a> 
+            </a> */}
             <a href="#skills" className="text-sm text-slate-300 hover:text-white transition-colors">
               Skills
             </a>
             <a href="#contact" className="text-sm text-slate-300 hover:text-white transition-colors">
               Contact
-            </a>*/}
+            </a>
           </div>
           
           <div className="flex space-x-4">
