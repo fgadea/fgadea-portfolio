@@ -41,7 +41,7 @@ const Hero = () => {
           <div className="flex flex-col items-center text-center md:text-left md:items-start">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-white">
               <span className="block">Hello, I'm <span className="text-primary-600 dark:text-primary-400">Felipe</span></span>
-              <span className="mt-2 block text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-rose-500 dark:from-blue-200 dark:via-purple-200 dark:to-rose-200">
+              <span className="mt-2 block text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 dark:from-blue-200 dark:via-purple-200 dark:to-orange-200">
                 {typing}<span className="animate-blink">|</span>
               </span>
             </h1>

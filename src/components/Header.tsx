@@ -35,7 +35,7 @@ const Header = ({ scrolled }: HeaderProps) => {
         <div className="flex items-center justify-between h-16 sm:h-20">
           <div className="flex items-center">
             <a href="#" className="flex items-center">
-              <span className="font-semibold text-xl tracking-tight text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-rose-500 dark:from-blue-200 dark:via-purple-200 dark:to-rose-200">
+              <span className="font-semibold text-xl tracking-tight text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 dark:from-blue-200 dark:via-purple-200 dark:to-orange-200">
                 Felipe Gadea Llopis
               </span>
             </a>
