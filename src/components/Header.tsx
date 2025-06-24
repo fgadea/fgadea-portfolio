@@ -21,6 +21,7 @@ const Header = ({ scrolled }: HeaderProps) => {
     { name: 'Highlights', href: '#companies' },
     { name: 'Skills', href: '#skills' },
     { name: 'Contact', href: '#contact' },
+    {name: 'Blog', href: 'https://fgadea.notion.site' },
   ];
 
   return (

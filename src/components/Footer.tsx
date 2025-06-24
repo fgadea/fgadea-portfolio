@@ -30,6 +30,9 @@ const Footer = () => {
             <a href="#contact" className="text-sm text-slate-300 hover:text-white transition-colors">
               Contact
             </a>
+            <a href="https://fgadea.notion.site" className="text-sm text-slate-300 hover:text-white transition-colors">
+              Blog
+            </a>
           </div>
           
           <div className="flex space-x-4">
